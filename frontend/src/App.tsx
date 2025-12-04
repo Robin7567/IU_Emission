@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LocalMenu from "./components/LocalMenu";
+import EmissionsTable from "./components/EmissionsTable";
 
-interface Emission {
+
+export interface Emission {
   country: string;
   company: string;
   sector: string;
@@ -21,29 +27,21 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>CO₂ Emissions Dashboard</h1>
+    <div className="app layout-ltr">
+      <Header />
 
-      <table border={1} cellPadding={8} style={{ marginTop: "1rem" }}>
-        <thead>
-          <tr>
-            <th>Land</th>
-            <th>Unternehmen</th>
-            <th>Sektor</th>
-            <th>Emissionen</th>
-          </tr>
-        </thead>
-        <tbody>
-          {emissions.map((row, index) => (
-            <tr key={index}>
-              <td>{row.country}</td>
-              <td>{row.company}</td>
-              <td>{row.sector}</td>
-              <td>{row.emissions}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <main className="main-layout">
+        <aside className="local-menu">
+          <LocalMenu />
+        </aside>
+
+        <section className="content">
+          <h2>CO₂-Emissionen Übersicht</h2>
+          <EmissionsTable emissions={emissions} />
+        </section>
+      </main>
+
+      <Footer />
     </div>
   );
 }
