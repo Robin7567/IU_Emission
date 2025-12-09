@@ -231,3 +231,23 @@ Sidebar und Hauptinhalt bilden eine zentrierte, visuell ausgewogene Einheit.
 Die Anwendung reagiert sauber auf unterschiedliche Bildschirmgrößen.
 
 Diese Überarbeitung war notwendig, um ein reproduzierbares und intuitiv erweiterbares Layout zu erhalten, und legt die Grundlage für die weitere Gestaltung der Benutzeroberfläche.
+
+5.1 Sortierfunktion für die Emissionstabelle
+
+Um die Nutzbarkeit der Emissionsübersicht zu verbessern, wurde die Tabelle um eine interaktive Sortierfunktion erweitert. Durch Anklicken einer Spaltenüberschrift (z. B. Land, Unternehmen, Sektor, Emissionen) werden die dargestellten Daten dynamisch sortiert.
+
+Technisch wird der aktuelle Sortierstatus als Kombination aus Sortierspalte und Sortierrichtung gespeichert. Beim erneuten Anklicken derselben Spalte wird die Sortierreihenfolge umgekehrt (aufsteigend/absteigend). Die Sortierung erfolgt vollständig clientseitig und wird sowohl für numerische als auch für textbasierte Daten korrekt angewendet.
+
+Ein visuelles Symbol (▲ / ▼) gibt zusätzlich an, welche Spalte aktuell aktiv sortiert wird und in welcher Richtung. Diese Funktion erhöht die Transparenz und Übersichtlichkeit der Daten und erfüllt damit die entsprechende Anforderung der Aufgabenstellung.
+
+5.2 Erweiterung der Beispieldaten
+
+Um die Sortier- und Filterfunktionen sinnvoll demonstrieren zu können, wurde die ursprünglich sehr kleine Beispieltabelle des Backends deutlich erweitert. Die neue Datenbasis umfasst mehrere Länder (u. a. Deutschland, USA, China, Indien, Japan) und realistisch wirkende Unternehmen unterschiedlicher Branchen wie Energie, Automobil, Chemie, Industrie oder Digitalwirtschaft.
+
+Jeder Eintrag enthält weiterhin die Attribute Land, Unternehmen, Sektor und Emissionen. Durch die größere Vielfalt an Daten können die später implementierten Funktionen (Sortierung, Filterung, Responsivität) anschaulich getestet und bewertet werden. Gleichzeitig bleibt die Datengrundlage vollständig fiktiv, wie es für eine Demonstrationsanwendung vorgesehen ist.
+
+5.3 Filterfunktion für die Emissionstabelle
+
+Zusätzlich zur Sortierung wurde die Tabelle um eine flexible Filterfunktion erweitert. Oberhalb der Tabelle stehen ein Freitext-Suchfeld sowie zwei Dropdown-Felder zur Verfügung. Über das Suchfeld können beispielsweise Unternehmensnamen oder Teile davon eingegeben werden. Die Dropdowns erlauben eine Einschränkung der Daten nach Land bzw. Sektor.
+
+Die Filter wirken kombinierbar: Es ist möglich, gleichzeitig ein bestimmtes Land, einen bestimmten Sektor und einen Suchbegriff auszuwählen. Die Filterung erfolgt vollständig im Frontend auf Basis der vom Backend gelieferten Daten. Anschließend werden die gefilterten Daten weiterhin nach der gewählten Sortierspalte sortiert. Dadurch bleibt die Benutzeroberfläche konsistent und die Anforderung einer sortier- und filterbaren Tabelle wird erfüllt.

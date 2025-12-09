@@ -15,6 +15,11 @@
   padding: 0 1.5rem;
 }
 
+.emissions-table th {
+  cursor: pointer;
+  user-select: none;
+}
+
 .main-layout {
   flex: 1;
   display: flex;
@@ -209,4 +214,40 @@
   .emissions-table td {
     padding: 0.4rem 0.5rem;
   }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.filters label {
+  font-size: 0.85rem;
+  color: #4b5563;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filters input,
+.filters select {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.85rem;
+  min-width: 160px;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #111827;
+}
+
+.emissions-table th {
+  cursor: pointer;
+  user-select: none;
 }
