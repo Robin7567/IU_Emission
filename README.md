@@ -1,8 +1,10 @@
-# IU_Emission📄 1. Einleitung & Setup der Entwicklungsumgebung
+# IU_Emission 1. Einleitung & Setup der Entwicklungsumgebung
 
 Für dieses Projekt wurden ein Python-basiertes Backend (FastAPI) und ein React-Frontend eingerichtet. Ziel war es, eine moderne, performante und klar strukturierte Entwicklungsumgebung zu schaffen, die sowohl lokale Entwicklung als auch spätere Erweiterungen erleichtert.
 
-📦 2. Einrichtung des Backends (FastAPI)
+Inhaltlich beschäftigt sich das Projekt mit der Visualisierung von CO₂-Emissionsdaten von Ländern und Unternehmen im Kontext einer fiktiven Non-Profit-Organisation. Die Anwendung soll Transparenz schaffen und erlaubt es Nutzenden, die dargestellten Daten zu sortieren und zu filtern. Der Fokus liegt dabei auf einer übersichtlichen Benutzeroberfläche, einer klaren Seitenstruktur sowie der nachvollziehbaren Umsetzung der in der Aufgabenstellung formulierten Anforderungen.
+
+2. Einrichtung des Backends (FastAPI)
 
 Das Backend wurde mit FastAPI umgesetzt.
 Die Installation und Verwaltung der Python-Abhängigkeiten erfolgen über das Tool uv, das eine schnelle und isolierte Arbeitsumgebung bereitstellt.
@@ -33,7 +35,7 @@ http://127.0.0.1:8000/api/emissions
 
 http://127.0.0.1:8000/docs (automatisch generierte API-Dokumentation)
 
-⚛️ 3. Einrichtung des Frontends (React + TypeScript + Vite)
+3. Einrichtung des Frontends (React + TypeScript + Vite)
 
 Das Frontend wurde mit dem modernen Build-Tool Vite erstellt, kombiniert mit React und TypeScript.
 Diese Kombination sorgt für schnelle Entwicklungszyklen, Hot Reloading und eine klare Komponentenstruktur.
@@ -61,7 +63,7 @@ http://localhost:5173/
 
 Die App lädt beim Start automatisch die Daten des Backends und zeigt diese in tabellarischer Form an.
 
-▶️ 4. Start der gesamten Anwendung
+▶4. Start der gesamten Anwendung
 
 Damit das Projekt vollständig funktioniert, müssen Backend und Frontend jeweils in eigenen Terminals gestartet werden:
 
@@ -77,7 +79,7 @@ npm run dev
 
 Sobald beide Prozesse laufen, kommuniziert das React-Frontend über HTTP direkt mit dem FastAPI-Backend.
 
-Frontendentwicklung – Projektstruktur
+Frontendentwicklung - Projektstruktur
 
 Für das Frontend wurde mittels Vite ein React-Projekt mit TypeScript erstellt. Um eine klare Struktur und gute Erweiterbarkeit zu gewährleisten, wurde eine komponentenbasierte Ordnerstruktur aufgebaut. Alle UI-Elemente (Header, Menü, Tabelle, Footer) wurden in einen separaten Ordner src/components/ ausgelagert.
 Die zentrale Logik zum Laden der Daten sowie das Seitenlayout befinden sich in App.tsx.
@@ -200,7 +202,7 @@ Einsatz von wenigen, zurückhaltenden Farben (Grautöne, Weiß, dezente dunkle A
 Konsistente Abstände und klare Struktur, um die Orientierung zu erleichtern.
 
 Dies passt zum Kontext einer Non-Profit-Organisation, die Transparenz und Seriosität rund um das Thema Klimawandel vermitteln möchte. Die visuelle Gestaltung unterstützt diese Zielsetzung, indem sie die Inhalte in den Vordergrund stellt und Ablenkungen reduziert.
-📄 4.8 Anpassung der Basis-CSS-Dateien und Zentrierung des Layouts
+4.8 Anpassung der Basis-CSS-Dateien und Zentrierung des Layouts
 
 Während der Entwicklung zeigte sich, dass das initial von Vite generierte Standard-CSS (insbesondere die Datei index.css) unerwartet Einfluss auf das Layout der Anwendung hatte. Insbesondere enthielt die generierte Datei eine globale Layoutdefinition auf dem <body>-Element, die wie folgt wirkte:
 
@@ -265,3 +267,29 @@ Um der Anwendung ein eigenständiges und professionelles Erscheinungsbild zu ver
 Zusätzlich wurde ein eigenes Logo in Form einer SVG-Grafik erstellt und integriert. Das Logo besteht aus einem schlichten dunklen Kreis mit der weißen Beschriftung „CO₂“ und orientiert sich visuell am minimalistischen Stil des Seitenlayouts. Die Verwendung eines SVG ermöglicht eine verlustfreie Darstellung auf allen Bildschirmgrößen und eignet sich sowohl für die Verwendung im Header der Webseite als auch als Favicon im Browser-Tab.
 
 Die SVG-Datei wurde in den öffentlichen Ordner des Frontend-Projekts eingebunden, sodass sie sowohl im Tab als auch in der Kopfzeile der Seite angezeigt werden kann. Durch diese Anpassungen erhält die Anwendung einen klaren Wiedererkennungswert und wirkt im Gesamteindruck deutlich professioneller.
+
+5.7 Verhalten der globalen und lokalen Navigation
+
+Die globale Navigation im Header sowie das lokale Menü in der Sidebar sind als In-Page-Navigation umgesetzt. Die einzelnen Navigationspunkte (Übersicht, Emissionsdaten, Rechtliches) verweisen auf klar definierte Anker innerhalb des zentralen Content-Bereichs. Dadurch bleibt die Anwendung bewusst als zusammenhängende Einzelseite strukturiert, während dennoch eine funktionale Navigation zwischen den inhaltlichen Abschnitten möglich ist.
+
+Da die Seite insgesamt kompakt gehalten ist und auf größeren Bildschirmen alle Inhalte gleichzeitig sichtbar sein können, führt das Anklicken der Navigationslinks in der Standardansicht nicht immer zu einer deutlich wahrnehmbaren Positionsänderung. Technisch ist die Navigation dennoch korrekt implementiert: Wird die Seite stark vergrößert (Zoom) oder auf kleineren Bildschirmen dargestellt, bei denen nicht der gesamte Content gleichzeitig sichtbar ist, ermöglichen die Navigationslinks ein gezieltes Springen zwischen den jeweiligen Inhaltsbereichen.
+
+Diese Form der Navigation ist für umfangreichere Seiten besonders geeignet und wurde hier bewusst gewählt, um die Anforderungen der Aufgabenstellung an eine globale und lokale Navigation zu erfüllen, ohne die Anwendung unnötig durch zusätzliche Seiten oder Routing-Logik zu verkomplizieren. Für eine vergleichsweise kurze Seite wie diese ist die Navigation funktional korrekt, im Alltag jedoch nur eingeschränkt notwendig, was im Kontext der Demonstrationsanwendung akzeptiert und beabsichtigt ist.
+
+5.8 Sicherheit und Eingabevalidierung
+
+Bei der Entwicklung der Anwendung wurde darauf geachtet, potenzielle Sicherheitsrisiken bereits auf konzeptioneller Ebene zu minimieren. Die Webanwendung ist als reine Demonstrations- und Visualisierungslösung konzipiert und erlaubt keine persistente Dateneingabe oder -verarbeitung durch Nutzende.
+
+Alle vom Benutzer eingegebenen Daten (z. B. Suchbegriffe oder Filterauswahlen) werden ausschließlich clientseitig im React-Frontend verarbeitet. Es findet keine Weiterleitung dieser Eingaben an das Backend statt. Dadurch wird verhindert, dass manipulierte oder schädliche Eingaben serverseitig verarbeitet oder gespeichert werden können.
+
+Zusätzlich profitiert die Anwendung von den Sicherheitsmechanismen des verwendeten Frameworks React. Dynamische Inhalte werden standardmäßig automatisch escaped, sodass die Ausführung von injiziertem HTML- oder JavaScript-Code (z. B. Cross-Site-Scripting) verhindert wird. Es wird bewusst auf Funktionen wie das direkte Einbinden von HTML (dangerouslySetInnerHTML) verzichtet.
+
+Das Backend stellt ausschließlich vordefinierte, statische JSON-Daten über eine klar abgegrenzte API bereit und akzeptiert keine nutzerspezifischen Parameter zur Datenmanipulation. In Kombination mit der klaren Trennung von Frontend und Backend ergibt sich somit eine robuste und sichere Architektur, die den Anforderungen der Aufgabenstellung entspricht.
+
+6. Zusammenfassung und Fazit
+
+Im Rahmen dieser Fallstudie wurde erfolgreich eine moderne Webanwendung zur Visualisierung von CO₂-Emissionsdaten umgesetzt. Durch die Kombination eines FastAPI-Backends mit einem React-Frontend konnten sowohl eine klare technische Struktur als auch eine ansprechende und benutzerfreundliche Oberfläche realisiert werden.
+
+Die Anwendung erfüllt alle zentralen Anforderungen der Aufgabenstellung: Sie verfügt über eine globale und lokale Navigation, ein responsives Layout, eine sortier- und filterbare Datentabelle sowie rechtliche Hinweise im Footer. Darüber hinaus wurde die Menüposition flexibel an unterschiedliche Schriftkulturen angepasst, und das Erscheinungsbild durch ein eigenes Logo und einen individuellen Browser-Titel professionalisiert.
+
+Die bewusst minimalistische Gestaltung unterstützt die Lesbarkeit und den sachlichen Charakter der dargestellten Informationen. Gleichzeitig bleibt die Anwendung durch ihre modulare Struktur gut erweiterbar. Insgesamt stellt das Projekt eine vollständige und nachvollziehbare Demonstration moderner Webentwicklung dar und bietet eine solide Grundlage für weiterführende Erweiterungen.
