@@ -2,7 +2,9 @@ function Header() {
   return (
     <header className="header">
       <div className="header-left">
-        <div className="logo-circle">CO₂</div>
+        <div className="logo">
+          <img src="/co2.svg" alt="CO₂ Logo" className="logo-img" />
+        </div>
         <div>
           <h1 className="site-title">Global CO₂ Transparency</h1>
           <p className="site-subtitle">Fiktive NGO zur Visualisierung von Emissionen</p>

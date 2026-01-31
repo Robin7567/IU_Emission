@@ -251,3 +251,17 @@ Jeder Eintrag enthält weiterhin die Attribute Land, Unternehmen, Sektor und Emi
 Zusätzlich zur Sortierung wurde die Tabelle um eine flexible Filterfunktion erweitert. Oberhalb der Tabelle stehen ein Freitext-Suchfeld sowie zwei Dropdown-Felder zur Verfügung. Über das Suchfeld können beispielsweise Unternehmensnamen oder Teile davon eingegeben werden. Die Dropdowns erlauben eine Einschränkung der Daten nach Land bzw. Sektor.
 
 Die Filter wirken kombinierbar: Es ist möglich, gleichzeitig ein bestimmtes Land, einen bestimmten Sektor und einen Suchbegriff auszuwählen. Die Filterung erfolgt vollständig im Frontend auf Basis der vom Backend gelieferten Daten. Anschließend werden die gefilterten Daten weiterhin nach der gewählten Sortierspalte sortiert. Dadurch bleibt die Benutzeroberfläche konsistent und die Anforderung einer sortier- und filterbaren Tabelle wird erfüllt.
+
+5.5 Anpassung der Menüposition an die Schriftkultur
+
+Um der Anforderung gerecht zu werden, dass das lokale Menü je nach Schriftkultur links oder rechts angezeigt werden soll, wurde in der Anwendung eine Umschaltmöglichkeit integriert. Über ein Auswahlfeld „Schriftkultur“ kann zwischen einer links-nach-rechts-orientierten Darstellung und einer rechts-nach-links-orientierten Darstellung gewechselt werden.
+
+Technisch wird die gewählte Ausrichtung als Zustand in der zentralen App-Komponente gespeichert. Abhängig von dieser Auswahl erhält das Wurzelelement der Anwendung eine entsprechende CSS-Klasse. Über diese Klasse wird die Anordnung des Hauptbereichs (Sidebar und Inhalt) gesteuert, indem die Flex-Richtung des Layout-Containers dynamisch zwischen normaler und umgekehrter Reihenfolge gewechselt wird. Auf diese Weise kann das lokale Menü wahlweise links oder rechts angezeigt werden, ohne die zugrunde liegende Struktur der Seite zu verändern.
+
+5.6 Anpassung des Browser-Titels und Integration eines eigenen Logos
+
+Um der Anwendung ein eigenständiges und professionelles Erscheinungsbild zu verleihen, wurde der standardmäßige Projekttitel des Vite-Templates im HTML-Header angepasst. Statt des generischen Namens „frontend“ wird nun ein aussagekräftiger Titel angezeigt, der den Zweck der Webseite widerspiegelt. Der neue Tab-Titel lautet beispielsweise „CO₂ Transparency Dashboard“ und erleichtert die Wiedererkennung der Anwendung im Browser.
+
+Zusätzlich wurde ein eigenes Logo in Form einer SVG-Grafik erstellt und integriert. Das Logo besteht aus einem schlichten dunklen Kreis mit der weißen Beschriftung „CO₂“ und orientiert sich visuell am minimalistischen Stil des Seitenlayouts. Die Verwendung eines SVG ermöglicht eine verlustfreie Darstellung auf allen Bildschirmgrößen und eignet sich sowohl für die Verwendung im Header der Webseite als auch als Favicon im Browser-Tab.
+
+Die SVG-Datei wurde in den öffentlichen Ordner des Frontend-Projekts eingebunden, sodass sie sowohl im Tab als auch in der Kopfzeile der Seite angezeigt werden kann. Durch diese Anpassungen erhält die Anwendung einen klaren Wiedererkennungswert und wirkt im Gesamteindruck deutlich professioneller.
